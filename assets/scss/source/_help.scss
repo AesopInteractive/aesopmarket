@@ -1,7 +1,5 @@
-  @mixin clearfix() { *zoom:1;
-    &:before, &:after { content: " "; display: table; }
-    &:after { clear: both; }
-  }
+
+
 .page-template-dev-docs-php,
 .single-ase_docs {
 
@@ -18,10 +16,7 @@
     }
 
     #content {
-    	padding:30px;
-    	background:white;
-		box-shadow: 0 2px 0 #D9E1E7;
-  		border-radius: 3px;
+    	@include market-back();
     }
 
     #primary {
@@ -32,10 +27,7 @@
 .post-type-archive-ase_docs {
 
     #content {
-    	padding:30px;
-    	background:white;
-		box-shadow: 0 2px 0 #D9E1E7;
-  		border-radius: 3px;
+    	@include market-back();
     }
 }
 .ase-content {

@@ -1,0 +1,13 @@
+.page-template-template-dashboard {
+    #primary {
+    	width:85%;
+    }
+
+}
+.market-theme-page {
+	@include market-back();
+}
+
+@media only screen and (max-width:768px) {
+    #content .fes-vendor-menu { width: 100% }
+}

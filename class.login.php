@@ -5,7 +5,7 @@
 *	 Class used to create a custom login setup which avoids wp-login.php
 *
 */
-class lassoThemeLoginStuff {
+class aesopMarketThemeLoginStuff {
 
 	function __construct(){
 
@@ -14,7 +14,7 @@ class lassoThemeLoginStuff {
 		add_filter( 'authenticate', 		array($this,'verify_username_password'), 1, 3);
 		add_filter( 'login_redirect', 		array($this,'admin_redirect'), 10, 3 );
 
-		//add_action('admin_init', 			array($this,'dashboard_redirect'));
+		add_action('admin_init', 			array($this,'dashboard_redirect'));
 		add_filter( 'show_admin_bar' , 		array($this,'admin_bar_admins_only'));
 		add_filter('wp_nav_menu_items', 	array($this,'login_link'), 10, 2 );
 	}
@@ -26,7 +26,7 @@ class lassoThemeLoginStuff {
 	*/
 	function login_link( $items, $args ){
 
-		if ( $args->theme_location == 'primary' && is_user_logged_in() ) {
+		if ( $args->theme_location == 'footer' && is_user_logged_in() ) {
 
 			if ( is_page('dashboard') ) {
 
@@ -37,10 +37,6 @@ class lassoThemeLoginStuff {
 	        	$items .= '<li><a href="/dashboard">Your Dashboard</a></li>';
 
 			}
-
-	    } else {
-
-	    	$items .= '<li><a href="/login">Login</a></li>';
 
 	    }
 
@@ -64,7 +60,10 @@ class lassoThemeLoginStuff {
 	*/
 	function dashboard_redirect(){
 
-		if ( !current_user_can( 'manage_options' ) ) {
+		if ( current_user_can('edit_products') && !current_user_can( 'manage_options' ) && defined('DOING_AJAX') && !DOING_AJAX  ) {
+			wp_redirect( 'seller-dashboard' );
+			exit;
+		} elseif ( !current_user_can( 'manage_options' ) && defined('DOING_AJAX') && !DOING_AJAX ) {
 			wp_redirect( 'dashboard' );
 			exit;
 		}
@@ -152,4 +151,4 @@ class lassoThemeLoginStuff {
 
 	} // end soi_login_redirect
 }
-new lassoThemeLoginStuff;
+new aesopMarketThemeLoginStuff;
