@@ -1,0 +1,326 @@
+  @mixin clearfix() { *zoom:1;
+    &:before, &:after { content: " "; display: table; }
+    &:after { clear: both; }
+  }
+.page-template-dev-docs-php,
+.single-ase_docs {
+
+    .ase-docs-left,
+    .ase-docs-right {
+        float:left;
+    }
+    .ase-docs-left {
+        width:25%;
+        padding-right:20px;
+    }
+    .ase-docs-right {
+        width:75%;
+    }
+
+    #content {
+    	padding:30px;
+    	background:white;
+		box-shadow: 0 2px 0 #D9E1E7;
+  		border-radius: 3px;
+    }
+
+    #primary {
+    	width:85%;
+    }
+}
+
+.post-type-archive-ase_docs {
+
+    #content {
+    	padding:30px;
+    	background:white;
+		box-shadow: 0 2px 0 #D9E1E7;
+  		border-radius: 3px;
+    }
+}
+.ase-content {
+	@include clearfix;
+}
+
+.post-type-archive-ase_docs {
+
+    .ase-docs,
+    .ase-docs-searchform,
+    .ase-docs-resources {
+        max-width:740px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .ase-docs-welcome {
+        text-align: center;
+        border-bottom:1px solid gray;
+        padding-bottom:1.4rem;
+        margin-bottom:4rem;
+    }
+
+    .ase-docs-resources {
+        .ase-docs-more-resources {
+            text-align: center;
+            margin-top:5rem;
+        }
+    }
+
+    .ase-docs-menu {
+        h6 {
+            //.ase-blue;
+            text-align: center;
+            margin-top:3rem;
+        }
+        ul {
+        	list-style:none;
+            text-align: center;
+        }
+        li {
+            margin-right:15px;
+            display:inline-block;
+        }
+
+        a {
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+}
+
+// search
+.ase-docs-searchform {
+    position: relative;
+    margin-bottom:5rem;
+    .ase-docs-searchfield {
+        position: relative;
+        height:43px;
+    }
+    .ase-docs-search-input {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        padding: 8px 19px;
+        box-shadow: none;
+    }
+}
+
+//breadcrumbs
+.ase-docs-breadcrumbs {
+    //color:@gray;
+    //font-size:@font-size-small - 2;
+    margin-bottom:1.4rem;
+    //border-bottom:1px solid @baseContrast;
+    padding-bottom:1rem;
+
+    a {
+        color:inherit;
+        position:relative;
+        padding-left:2rem;
+
+        &:first-child{
+            &:before {
+                content:'\f015';
+                font-family: FontAwesome;
+                position:absolute;
+                left:0;
+            }
+        }
+
+    }
+
+    .current {
+       // color:@link-color;
+    }
+}
+
+// ase doc archives
+.ase-docs-search {
+
+    .ase-docs-breadcrumbs {
+        text-align:center;
+       // .h4;
+        color:inherit;
+    }
+
+    li {
+       // border-bottom:1px solid @baseContrast;
+
+    }
+    a {
+        display: block;
+        padding:2rem;
+        color:inherit;
+
+        &:hover {
+           // color:@link-color;
+            text-decoration: none;
+
+            h6 {
+               // color:@link-color;
+            }
+        }
+    }
+    article {
+        display:block;
+    }
+    h6 {
+        margin:0 auto 0.35rem;
+    }
+    .ase-docs-search-result-content {
+        //font-size:@font-size-small;
+        //line-height: @font-size-small + 2;
+    }
+}
+
+.ase-docs-left {
+
+  // border-right:1px solid @baseContrast;
+
+   // the heading title
+   h6 {
+        margin:0 auto 0.45rem;
+   }
+
+   // actual ist
+   ul {
+    	list-style:none;
+    	margin:0 0 25px 0;
+    	padding:0;
+
+        li {
+
+        	a {
+        		padding-left:7px;
+        		font-size:15px;
+        	}
+
+            &:before {
+                font-family:'Dashicons';
+                position: relative;
+                left:0;
+                top:2px;
+               	font-size:13px;
+            }
+            // image
+            &.imagecomponent:before { content: "\f128"; } 
+            // character
+            &.charactercomponent:before { content: "\f338"; } 
+            // qupte
+            &.quotecomponent:before { content: "\f122"; } 
+            // content
+            &.contentcomponent:before { content: "\f207"; } 
+            // chapter head
+            &.chaptercomponent:before { content: "\f330"; } 
+            // parallax
+            &.parallaxcomponent:before { content: "\f168"; } 
+            // audio
+            &.audiocomponent:before { content: "\f127"; } 
+            // video
+            &.videocomponent:before { content: "\f128"; } 
+            // map
+            &.mapcomponent:before { content: "\f319"; } 
+            // video
+            &.timelinecomponent:before { content: "\f469"; } 
+            // document
+            &.documentcomponent:before { content: "\f123"; } 
+            // collection
+            &.collectioncomponent:before { content: "\f175"; }
+             // gallery
+            &.gallerycomponent:before { content: "\f232"; } 
+        }
+   }
+
+}
+.ase-docs-right {
+
+}
+
+.ase-step-list {
+    counter-reset: sequence-counter;
+    margin:5rem auto;
+
+    li {
+        position: relative;
+        padding-left:5rem;
+        margin:4rem auto;
+       // .clearfix();
+
+        &.no-img {
+            p {
+                width:100%;
+                float:none;
+                padding-right:0;
+            }
+        }
+
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: counter(sequence-counter);
+            counter-increment: sequence-counter;
+          //  border:1px solid @baseContrast;
+            border-radius:50%;
+            text-align: center;
+            display: inline-block;
+            height:30px;
+            width:30px;
+            //font-size:@font-size-small;
+           // .ase-blue-back;
+           // color:@body-bg;
+        }
+        p {
+            float:left;
+            padding-right:2rem;
+            width:60%;
+           // font-size:@font-size-base - 1;
+           // line-height: @font-size-base + 3;
+            font-weight:400;
+        }
+
+        img{
+            width:40%;
+            float: right;
+           // .ase-img;
+        }
+    }
+}
+
+.ase-doc-note {
+   // background:@baseContrast;
+    padding:1.6rem 2rem 1.8rem;
+    border-radius:3px;
+    margin:3rem auto;
+
+    span {
+        margin-right:1.2rem;
+    }
+}
+
+.ase-doc-atts {
+    margin:3rem auto;
+    dl {
+        ///font-size:@font-size-small;
+        //font-family: @font-family-sans-serif;
+        margin-bottom:1rem;
+    }
+
+}
+
+
+.ase-dev-docs-welcome {
+    margin-bottom:5rem;
+
+    .ase-dev-doc-block {
+       // .ase-spiffy-box;
+    }
+}
+.ase .bwp-syntax-block {
+    width:100%;
+}
+

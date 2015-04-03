@@ -1,5 +1,16 @@
 <?php
 
+add_action('checkout_below_page_titles','ase_add_help_title');
+function ase_add_help_title(){
+
+	// Title for help archive
+	if ( is_post_type_archive( 'ase_docs' ) ) :
+
+		?><h2>Help Center</h2><?php
+
+	endif;
+}
+
 add_action('after_setup_theme','setup_marketplace');
 function setup_marketplace(){
 	require('market-options.php');
