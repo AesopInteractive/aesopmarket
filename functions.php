@@ -1,5 +1,15 @@
 <?php
 
+
+add_action('after_setup_theme','setup_marketplace');
+function setup_marketplace(){
+
+	require('market-options.php');
+	require('class.login.php');
+}
+
+define('EDD_SLUG', 'library');
+
 add_action('checkout_below_page_titles','ase_add_help_title');
 function ase_add_help_title(){
 
@@ -10,13 +20,6 @@ function ase_add_help_title(){
 
 	endif;
 }
-
-add_action('after_setup_theme','setup_marketplace');
-function setup_marketplace(){
-	require('market-options.php');
-}
-
-define('EDD_SLUG', 'library');
 
 add_action('pre_get_posts', 'exclude_donation');
 function exclude_donation($query) {

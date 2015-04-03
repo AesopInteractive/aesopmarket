@@ -3,3 +3,11 @@
 .site-header .logo-image img {
 	max-width:100px
 }
+
+input[type="submit"], .button, .post-content .button, #commentform #submit, .contact-submit input[type="submit"], #edd-purchase-button, #content input[type=submit].edd-submit, #edd-wl-modal .edd-wl-button, #content p a.edd-wl-action.edd-wl-button, .mailbag-wrap .mailbag-input .button, .wpcf7-submit, .post-password-form input[type="submit"] {
+	background:#007aab;
+
+	&:focus {
+		outline:none;
+	}
+}
